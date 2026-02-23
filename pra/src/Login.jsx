@@ -22,6 +22,8 @@ const Login = () => {
    if(res.ok){
       localStorage.setItem("token", data.token)
       nav("/dash") 
+   }else{
+    nav("/signup")
    }
   }
   return (
