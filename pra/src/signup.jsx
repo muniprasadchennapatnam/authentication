@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
   const [username, setUsername]=useState("")
   const [password, setPassword]=useState("")
   const [conpassword, setConpassword]=useState("")
-   
+  const nav=useNavigate()
   
   const fun=(async(e)=>{
 
@@ -19,11 +20,15 @@ const Signup = () => {
     const res=await fetch("http://localhost:3500/userdata/signup",{
       method:"POST",
       headers:{
-        "Content-Type":"Application/json"
+        "Content-Type":"application/json"
       },
       body:JSON.stringify(userdetails)
       
     })
+    
+  if (res.ok) {
+        nav("/login");   // navigate only if signup success
+      }
 
 }
 catch(e){

@@ -21,7 +21,7 @@ const login = async (req, res) => {
     { expiresIn: "1h" }
   )
 
-  res.json({ token })
+  res.json({ token ,expiresIn:"1h"})
   
 }
 

@@ -20,9 +20,12 @@ const Login = () => {
    const data=await res.json()
    console.log(data)
    if(res.ok){
-      localStorage.setItem("token", data.token)
+      const auth=localStorage.setItem("token", data.token)
+      
       nav("/dash") 
+      
    }else{
+    alert("user not exist")
     nav("/signup")
    }
   }
